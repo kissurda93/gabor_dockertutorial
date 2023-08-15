@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t gaborjoros/gabor_dockertutorial -f Dockerfile.dev .
+
+script:
+  - docker run gaborjoros/gabor_dockertutorial npm run test -- --coverage
